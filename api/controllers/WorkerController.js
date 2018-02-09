@@ -31,6 +31,29 @@ class WorkerController {
 
   }
 
+  async makeload() {
+    const promise = new Promise(resolve => {
+      setTimeout(resolve, 10, this);
+    });
+    await promise;
+    const ret = [];
+    for (let i = 0; i < 10000; i++) {
+      ret.push({
+        relatedTasks: [],
+        notBefore: [],
+        id: 1,
+        orderId: 1,
+        queueStatus: 'new',
+        jobType: 'test',
+        result: 'success',
+        argData: 'test',
+        detail: 'blah',
+        lastActive: new Date(),
+        updatedAt: Date.now(),
+        priority: 2 });
+    }
+    return ret;
+  }
 }
 
 
